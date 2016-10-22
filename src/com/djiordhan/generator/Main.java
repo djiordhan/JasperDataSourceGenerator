@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package jasperdatasourcegenerator;
+package com.djiordhan.generator;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ import javax.swing.JFileChooser;
  */
 public class Main extends javax.swing.JFrame {
 
-    private JFileChooser jFileChooser;
+    private JFileChooser fileChooser;
     private File file;
 
     /**
@@ -25,7 +25,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        jFileChooser = new JFileChooser();
+        fileChooser = new JFileChooser();
     }
 
     /**
@@ -37,37 +37,37 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtFilePath = new javax.swing.JTextField();
+        btnFileChooser = new javax.swing.JButton();
+        btnGenerate = new javax.swing.JButton();
+        scrollDataSource = new javax.swing.JScrollPane();
+        txtDataSource = new javax.swing.JTextArea();
+        scrollUsage = new javax.swing.JScrollPane();
+        txtUsage = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Browse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnFileChooser.setText("Browse");
+        btnFileChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnFileChooserActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Generate");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGenerate.setText("Generate");
+        btnGenerate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGenerateActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        txtDataSource.setColumns(20);
+        txtDataSource.setRows(5);
+        scrollDataSource.setViewportView(txtDataSource);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        txtUsage.setColumns(20);
+        txtUsage.setRows(5);
+        scrollUsage.setViewportView(txtUsage);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,14 +76,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(scrollDataSource, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(txtFilePath)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btnFileChooser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane4))
+                        .addComponent(btnGenerate))
+                    .addComponent(scrollUsage))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,29 +91,29 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(txtFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFileChooser)
+                    .addComponent(btnGenerate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addComponent(scrollDataSource, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addComponent(scrollUsage, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnFileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileChooserActionPerformed
         // TODO add your handling code here:
-        int i = jFileChooser.showOpenDialog(null);
+        int i = fileChooser.showOpenDialog(null);
         if (i == JFileChooser.APPROVE_OPTION) {
-            file = jFileChooser.getSelectedFile();
-            jTextField1.setText(file.getPath());
+            file = fileChooser.getSelectedFile();
+            txtFilePath.setText(file.getPath());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnFileChooserActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
         // TODO add your handling code here:
         boolean fieldNamePassed = false;
         int NumOffieldNamePassed = 0;
@@ -159,7 +159,7 @@ public class Main extends javax.swing.JFrame {
             }
         }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnGenerateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,34 +190,32 @@ public class Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Main().setVisible(true);
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnFileChooser;
+    private javax.swing.JButton btnGenerate;
+    private javax.swing.JScrollPane scrollDataSource;
+    private javax.swing.JScrollPane scrollUsage;
+    private javax.swing.JTextArea txtDataSource;
+    private javax.swing.JTextField txtFilePath;
+    private javax.swing.JTextArea txtUsage;
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return the jFileChooser
+     * @return the fileChooser
      */
     public JFileChooser getjFileChooser() {
-        return jFileChooser;
+        return fileChooser;
     }
 
     /**
-     * @param jFileChooser the jFileChooser to set
+     * @param jFileChooser the fileChooser to set
      */
     public void setjFileChooser(JFileChooser jFileChooser) {
-        this.jFileChooser = jFileChooser;
+        this.fileChooser = jFileChooser;
     }
 
     /**
@@ -242,9 +240,7 @@ public class Main extends javax.swing.JFrame {
                 + "public class " + className + " implements JRDataSource {";
 
         //Field Names
-        for (String f : fieldNames) {
-            generated += "private String " + f + ";";
-        }
+        generated = fieldNames.stream().map((f) -> "private String " + f + ";").reduce(generated, String::concat);
         //read
         generated += "int read = 0;";
         //next
@@ -283,9 +279,7 @@ public class Main extends javax.swing.JFrame {
         String generated = "";
 
         generated += className + " dataSource = new " + className + "();";
-        for (String f : fieldNames) {
-            generated += "dataSource.set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(\"" + f + "\");";
-        }
+        generated = fieldNames.stream().map((f) -> "dataSource.set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(\"" + f + "\");").reduce(generated, String::concat);
 
         return generated;
     }
@@ -293,51 +287,51 @@ public class Main extends javax.swing.JFrame {
     public String generateDataSourceText(String className, List<String> fieldNames) {
         String generated = "";
 
-        jTextArea1.append("import net.sf.jasperreports.engine.JRDataSource;\n");
-        jTextArea1.append("import net.sf.jasperreports.engine.JRException;\n");
-        jTextArea1.append("import net.sf.jasperreports.engine.JRField;\n\n");
-        jTextArea1.append("public class " + className + " implements JRDataSource {\n\n");
+        txtDataSource.append("import net.sf.jasperreports.engine.JRDataSource;\n");
+        txtDataSource.append("import net.sf.jasperreports.engine.JRException;\n");
+        txtDataSource.append("import net.sf.jasperreports.engine.JRField;\n\n");
+        txtDataSource.append("public class " + className + " implements JRDataSource {\n\n");
         //Field Names
-        for (String f : fieldNames) {
-            jTextArea1.append("private String " + f + ";\n");
-        }
+        fieldNames.stream().forEach((f) -> {
+            txtDataSource.append("private String " + f + ";\n");
+        });
         //read
-        jTextArea1.append("int read = 0;\n\n");
+        txtDataSource.append("int read = 0;\n\n");
         //next
-        jTextArea1.append("@Override\n public boolean next() throws JRException {\n read++;\n return read != 2;\n }\n");
+        txtDataSource.append("@Override\n public boolean next() throws JRException {\n read++;\n return read != 2;\n }\n");
         //constructor
-        jTextArea1.append("public " + className + "(){\n}\n");
+        txtDataSource.append("public " + className + "(){\n}\n");
         //getfieldvalue
-        jTextArea1.append("@Override\n public Object getFieldValue(JRField jrf) throws JRException {\n String fieldName = jrf.getName();\n");
+        txtDataSource.append("@Override\n public Object getFieldValue(JRField jrf) throws JRException {\n String fieldName = jrf.getName();\n");
 
         boolean first = true;
         for (String f : fieldNames) {
 
             if (first) {
-                jTextArea1.append("if (fieldName.equals(\"" + f + "\")) {\n return " + f + ";\n }\n");
+                txtDataSource.append("if (fieldName.equals(\"" + f + "\")) {\n return " + f + ";\n }\n");
             } else {
-                jTextArea1.append("else if (fieldName.equals(\"" + f + "\")) {\n return " + f + ";\n }\n");
+                txtDataSource.append("else if (fieldName.equals(\"" + f + "\")) {\n return " + f + ";\n }\n");
             }
 
             first = false;
         }
 
-        jTextArea1.append(" return null;\n }\n");
+        txtDataSource.append(" return null;\n }\n");
         //encapsulation
         for (String f : fieldNames) {
-            jTextArea1.append("public String get" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(){\n return this." + f + ";\n }\n");
-            jTextArea1.append("public void set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(String " + f + "){\n this." + f + " = " + f + ";\n }\n");
+            txtDataSource.append("public String get" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(){\n return this." + f + ";\n }\n");
+            txtDataSource.append("public void set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(String " + f + "){\n this." + f + " = " + f + ";\n }\n");
         }
-        jTextArea1.append("}\n");
+        txtDataSource.append("}\n");
         return generated;
     }
 
     public String generateDataSourceInstanceText(String className, List<String> fieldNames) {
         String generated = "";
-        jTextArea2.append(className + " dataSource = new " + className + "();\n");
-        for (String f : fieldNames) {
-            jTextArea2.append("dataSource.set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(\"" + f + "\");\n");
-        }
+        txtUsage.append(className + " dataSource = new " + className + "();\n");
+        fieldNames.stream().forEach((f) -> {
+            txtUsage.append("dataSource.set" + f.replaceFirst(f.charAt(0) + "", (f.charAt(0) + "").toUpperCase()) + "(\"" + f + "\");\n");
+        });
         return generated;
     }
 }
